@@ -38,6 +38,8 @@ const TokenGenerationScreen = () => {
         Alert.alert(res.data.message);
         return;
       }
+      setAmount('')
+      setMeterNumber('');
       setToken(res.data.token.token)
     } catch (error) {
       console.error(error);

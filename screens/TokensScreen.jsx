@@ -8,12 +8,18 @@ import axios from 'axios';
 const TokensScreen = () => {
   const [meterNumber, setMeterNumber] = useState(null);
   const [data, setData] = useState([]);
+  const [started,setStarted]=useState(false);
 
   const handleMeterChange = (text) => {
     setMeterNumber(text);
   };
-
+  const calculateExpiryDate = (purchasedDate, tokenValueDays) => {
+    const expiryDate = new Date(purchasedDate);
+    expiryDate.setDate(expiryDate.getDate() + tokenValueDays);
+    return expiryDate.toLocaleDateString();
+  };
   const handleSearch = async () => {
+    setStarted(true)
     if(!meterNumber){
         Alert.alert("Enter meter number");
         return;
@@ -35,7 +41,7 @@ const TokensScreen = () => {
         <CustomButton text="Search Tokens" bg="#ff6f61" color="white" onPress={handleSearch} />
       </View>
       <View style={styles.tokenContainer}>
-        {meterNumber && data && data.length > 0 ? (
+        {started && data && data.length > 0 ? (
             <>
         <Text style={styles.tokenTitle}>Generated Tokens</Text>
           <FlatList
@@ -49,7 +55,9 @@ const TokensScreen = () => {
                   <Text style={{color:"green",marginLeft:7}}>{item.token_value_days}</Text>
                   </Text>
                   <Text style={styles.tokenText}>Purchased Date: {new Date(item.purchasedDate).toLocaleDateString()}</Text>
-                  <Text style={styles.tokenText}>Expiry Date: {new Date(item.purchasedDate).getDate() + item.token_value_days} {new Date(item.purchasedDate).toLocaleDateString()}</Text>
+                  <Text style={styles.tokenText}>
+                  Expiry Date: <Text style={{color:"red",fontWeight:"bold"}}>{calculateExpiryDate(item.purchasedDate, item.token_value_days)}</Text>
+                </Text>
                   <Text style={[tw`text-right`,styles.tokenAmount]}>{item.amount} Rwf</Text>
                 </View>
               </TouchableOpacity>

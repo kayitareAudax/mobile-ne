@@ -6,7 +6,7 @@ const WelcomeScreen = ({ navigation }) => {
   //set timer(3seconds) to redirect to signup screen
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.navigate('Signup');
+      navigation.navigate('Token');
     }, 3000);
 
     return () => clearTimeout(timer);

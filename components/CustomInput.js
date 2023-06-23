@@ -20,7 +20,7 @@ const CustomInput = ({ placeholder, icon, keyBoardType, value, HiddenText, onCha
       <TextInput
         style={styles.input}
         placeholder={placeholder}
-        keyboardType={keyBoardType != null ? keyBoardType : 'default'}
+        keyboardType={keyBoardType != null ? keyBoardType : 'numeric'}
         secureTextEntry={HiddenText != null ? true : false}
         value={value}
         onChangeText={value => onChange(value)}

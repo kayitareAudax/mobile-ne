@@ -24,6 +24,7 @@ const TokenValidationScreen = () => {
       }
       setData(response.data.data)
       setPurchasedDate(response.data.purchased);
+      setTokenValue('');
     } catch (error) {
       console.log(error);
       Alert.alert('Error', 'Token validation failed');
