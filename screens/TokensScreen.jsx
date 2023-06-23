@@ -28,7 +28,6 @@ const TokensScreen = () => {
         Alert.alert("Enter meter number of 6 digits")
     }
     const res = await axios.post('/token/getTokensByMeter', { meterNumber });
-    console.log(res.data);
     setData(res.data.data);
   };
 

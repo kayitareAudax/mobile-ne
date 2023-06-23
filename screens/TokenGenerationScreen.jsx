@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, Alert, StyleSheet, Clipboard } from 'react-native';
 import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton';
@@ -16,7 +16,11 @@ const TokenGenerationScreen = () => {
   const handleAmountChange = (text) => {
     setAmount(text);
   };
-
+  useEffect(()=>{
+    setAmount('')
+    setToken('')
+    setMeterNumber('')
+  },[])
   const handleMeterChange = (text) => {
     setMeterNumber(text);
   };
