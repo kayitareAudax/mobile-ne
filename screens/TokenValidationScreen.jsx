@@ -17,11 +17,13 @@ const TokenValidationScreen = () => {
       return;
     }
     try {
+      //perform the request
       const response = await axios.post('/token/validate', { token:tokenValue });
       if(!response.data.success){
         Alert.alert("Error",response.data.message);
         return;
       }
+      //set the data
       setData(response.data.data)
       setPurchasedDate(response.data.purchased);
       setTokenValue('');

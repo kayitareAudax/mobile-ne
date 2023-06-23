@@ -24,6 +24,7 @@ const TokenGenerationScreen = () => {
     Clipboard.setString(token);
     Alert.alert('Copied to Clipboard', 'The token value has been copied to the clipboard');
   };
+  //handle token generation
   const handleGenerateToken = async () => {
     if (!amount || !meterNumber) {
       setError('Fill in all fields');
