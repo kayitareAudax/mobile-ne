@@ -16,24 +16,19 @@ const Menu = () => {
 
   return (
     <View style={[tw`bg-white flex-row justify-around items-center h-16 mt-2 rounded-t-3xl mx-2`]}>
-      <TouchableOpacity onPress={() => navigation.navigate('Home')} style={tw`flex items-center justify-center`}>
-        <Icon name="home" size={26} color={isCurrentScreen('Home') ? '#ff6f61' : 'black'} />
-        <Text style={isCurrentScreen('Home') ? { color: '#ff6f61' } : null}>Home</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Token')} style={tw`flex items-center justify-center`}>
+        <Icon name="plus" size={26} color={isCurrentScreen('Token') ? '#ff6f61' : 'black'} />
+        <Text style={isCurrentScreen('Token') ? { color: '#ff6f61' } : null}>Generate</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('CarRegistration')} style={tw`flex items-center justify-center`}>
-        <Icon name="car" size={22} color={isCurrentScreen('CarRegistration') ? '#ff6f61' : 'black'} />
-        <Text style={isCurrentScreen('CarRegistration') ? { color: '#ff6f61' } : null}>Vehicles</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Validate')} style={tw`flex items-center justify-center`}>
+        <Icon name="lock" size={22} color={isCurrentScreen('Validate') ? '#ff6f61' : 'black'} />
+        <Text style={isCurrentScreen('Validate') ? { color: '#ff6f61' } : null}>Validate</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('History')} style={tw`flex items-center justify-center`}>
-        <Icon name="history" size={24} color={isCurrentScreen('History') ? '#ff6f61' : 'black'} />
-        <Text style={isCurrentScreen('History') ? { color: '#ff6f61' } : null}>History</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={tw`flex items-center justify-center`}>
-        <Icon name="user" size={24} color={isCurrentScreen('Profile') ? '#ff6f61' : 'black'} />
-        <Text style={isCurrentScreen('Profile') ? { color: '#ff6f61' } : null}>Profile</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Tokens')} style={tw`flex items-center justify-center`}>
+        <Icon name="history" size={24} color={isCurrentScreen('Tokens') ? '#ff6f61' : 'black'} />
+        <Text style={isCurrentScreen('Tokens') ? { color: '#ff6f61' } : null}>History</Text>
       </TouchableOpacity>
     </View>
   );
